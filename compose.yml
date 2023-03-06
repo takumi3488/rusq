@@ -1,0 +1,31 @@
+services:
+  rusq:
+    build:
+      context: .
+      target: runner
+    ports:
+      - 8080:8080
+    environment:
+      RUSQ_HOST: 0.0.0.0
+      RUSQ_PASSWORD: password
+      RUSQ_REDIS_URL: redis://dragonfly/
+    depends_on:
+      - dragonfly
+
+  dragonfly:
+    image: docker.dragonflydb.io/dragonflydb/dragonfly
+
+  dev:
+    build:
+      context: .
+      target: dev
+    volumes:
+      - .:/app
+    ports:
+      - 8080:8080
+    environment:
+      RUSQ_HOST: 0.0.0.0
+      RUSQ_PASSWORD: password
+      RUSQ_REDIS_URL: redis://dragonfly/
+    depends_on:
+      - dragonfly
