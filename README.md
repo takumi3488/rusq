@@ -1,6 +1,6 @@
 # RusQ
 
-RusQ is the fastest and simplest message queuing app built in Rust, accepting queues in-memory with HTTP requests and executing commands defined in YAML.
+RusQ is the fastest and simplest message queuing app built in Rust, accepting queues in-memory with HTTP requests.
 
 ## Usage
 
